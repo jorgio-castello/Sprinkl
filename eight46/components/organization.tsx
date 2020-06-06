@@ -1,28 +1,58 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 
-export default function Organization() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}> OrganizationCard </Text>
-      <Text>Name: American Cross</Text>
-      <Text>Mission Statement: The American Red Cross prevents..."</Text>
-      <Text>Cause: XYZ</Text>
-      <Text>Country: USA</Text>
-      <Text>Website: "http://www.redcross.org/"</Text>
-      <Text>Logo: logo_url</Text>
-    </View>
-  );
+interface Organization {
+  id: string,
+  alias: string,
+  ngo_id: string,
+  name: string,
+  mission: string,
+  street1: string,
+  street2: string,
+  city: string,
+  region: string,
+  postal_code: string,
+  country: string,
+  lat: string,
+  long: string,
+  website_url: string,
+  profile_url: string,
+  logo_url: string,
+  disbursement_type: string,
+};
+
+type OrganizationProps = {
+  organizationData: Array<Organization>,
+};
+
+const Organization: React.FC<OrganizationProps> = ({ organizationData }) => {
+    return (
+      <FlatList
+        data={organizationData}
+        renderItem={({ item }) => (
+          <View style={styles.organizationCard}>
+              <Text>{item.name}</Text>
+              <Text>{item.mission}</Text>
+              <Text>{item.country}</Text>
+              <Text>{item.website_url}</Text>
+          </View>
+        )}
+        keyExtractor={item => item.id}
+      />
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  organizationCard: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    margin: '5%'
   },
   text: {
     color: 'red',
   }
 });
+
+export default Organization;
