@@ -1,15 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Organization from './components/Organization';
-import Donate from './components/Donate';
-import RoundUps from './components/RoundUps';
 
-export default function App() {
+export default function RoundUps() {
   return (
     <View style={styles.container}>
-      <Organization />
-      <Donate />
-      <RoundUps />
+      <Text style={styles.text}> RoundUp Component </Text>
+      <Text>List of Recent Transactions Add / Remove</Text>
     </View>
   );
 }
