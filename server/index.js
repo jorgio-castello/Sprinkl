@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
+const fetch = require('node-fetch');
 
 // db connection
 const { sequelize } = require('../postgres');
 
 const PORT = process.env.port || 8460;
 
-app.get('/hello', (req, res) => {
-  res.json({ hello: 'world' });
+app.get('/transactionData', (req, res) => {
+  fetch('http://localhost:8000/transactions')
+    .then(res => res.json())
+    .then(data => console.log(data));
 });
 
 sequelize.sync().then(() => {
