@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Organization from './components/organization';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hi Audrey! :)</Text>
+      <Organization />
     </View>
   );
 }
