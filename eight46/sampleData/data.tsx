@@ -42,18 +42,21 @@ const organizations =
 
 const roundUps = [
   {
+    id: 1,
     date: 'May 15, 2019',
     vendor: 'Starbucks',
     price: 4.32,
     roundUp: 0.68
   },
   {
+    id: 2,
     date: 'May 29, 2019',
     vendor: 'Swork',
     price: 5.89,
     roundUp: 0.68
   },
   {
+    id: 3,
     date: 'June 2, 2019',
     vendor: 'SweetGreen',
     price: 18.20,
