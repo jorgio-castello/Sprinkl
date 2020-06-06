@@ -3,7 +3,11 @@ const app = express();
 
 const PORT = process.env.port || 8460;
 
-app.listen(3000, (err) => {
+app.get('/hello', (req, res) => {
+  res.json({ hello: 'world' });
+});
+
+app.listen(PORT, (err) => {
   if (err) {
     throw new Error(err);
   } else {
