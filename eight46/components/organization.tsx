@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
+import taildwind from 'tailwind-rn';
+import tailwind from 'tailwind-rn';
 
 interface Organization {
   id: string,
@@ -14,7 +16,7 @@ interface Organization {
   postal_code: string,
   country: string,
   lat: string,
-  long: string,
+  lon: string,
   website_url: string,
   profile_url: string,
   logo_url: string,
@@ -28,9 +30,10 @@ type OrganizationProps = {
 const Organization: React.FC<OrganizationProps> = ({ organizationData }) => {
     return (
       <FlatList
+        style={tailwind('w-5/6')}
         data={organizationData}
         renderItem={({ item }) => (
-          <View style={styles.organizationCard}>
+          <View style={tailwind('border-solid border-4 border-gray-600 mt-1 mb-1')}>
               <Text>{item.name}</Text>
               <Text>{item.mission}</Text>
               <Text>{item.country}</Text>
@@ -42,17 +45,18 @@ const Organization: React.FC<OrganizationProps> = ({ organizationData }) => {
     );
 }
 
-const styles = StyleSheet.create({
-  organizationCard: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: '5%'
-  },
-  text: {
-    color: 'red',
-  }
-});
+// const styles = StyleSheet.create({
+//   organizationCard: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     margin: '5%',
+//     border:
+//   },
+//   text: {
+//     color: 'red',
+//   }
+// });
 
 export default Organization;
