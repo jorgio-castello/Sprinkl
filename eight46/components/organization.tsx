@@ -30,7 +30,7 @@ type OrganizationProps = {
 const Organization: React.FC<OrganizationProps> = ({ organizationData }) => {
     return (
       <FlatList
-        style={tailwind('w-5/6')}
+        style={tailwind('')}
         data={organizationData}
         renderItem={({ item }) => (
           <View style={tailwind('border-solid border-4 border-gray-600 mt-1 mb-1')}>
@@ -44,19 +44,4 @@ const Organization: React.FC<OrganizationProps> = ({ organizationData }) => {
       />
     );
 }
-
-// const styles = StyleSheet.create({
-//   organizationCard: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     margin: '5%',
-//     border:
-//   },
-//   text: {
-//     color: 'red',
-//   }
-// });
-
 export default Organization;

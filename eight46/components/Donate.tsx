@@ -1,28 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import tailwind from 'tailwind-rn';
 
 export default function Donate() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}> Donate Component </Text>
-      <Text>Organization #1: $XX.YY - Slider Component / Allow Deletes</Text>
-      <Text>Organization #2: $XX.YY - Slider Component</Text>
-      <Text>Organization #3: $XX.YY - Slider Component</Text>
-      <Text>Total: $XX.YY - Slider Component</Text>
-      <Text>Remaining Donations ($): $XX.YY - Slider Component</Text>
-      <Text>Donate</Text>
+    <View style={tailwind('border-solid border-4 border-gray-600')}>
+      <Text>Red Cross $0.80</Text>
+      <Text>Black Lives Matter $0.79</Text>
+      <Text>Total: $1.59</Text>
+      <Text>Remaining Donations ($): $0.00</Text>
+      <Text>Donate Now</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    color: 'red',
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   text: {
+//     color: 'red',
+//   }
+// });

@@ -37,9 +37,10 @@ export default class App extends React.Component<{}, AppState> {
           <Organization organizationData={organizations}/>
         </View>
 
-        {/* <View style={tailwind('border-solid border-4 border-gray-600')}>
+        <View style={tailwind('')}>
+        <Text style={styles.text}> Donate Component </Text>
           <Donate />
-        </View> */}
+        </View>
 
         <View style={tailwind('my-10')}>
           <Text style={styles.text}> Transaction Cards </Text>

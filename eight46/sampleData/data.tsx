@@ -53,7 +53,7 @@ const roundUps = [
     date: 'May 29, 2019',
     vendor: 'Swork',
     price: 5.89,
-    roundUp: 0.68
+    roundUp: 0.11
   },
   {
     id: 3,
