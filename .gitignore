@@ -3,3 +3,4 @@ server/package-lock.json
 Dockerfile
 postgres/node_modules
 postgres/package-lock.json
+plaid/
