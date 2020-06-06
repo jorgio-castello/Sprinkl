@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Organization from './components/organization';
+import Organization from './components/Organization';
+import Donate from './components/Donate';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Organization />
+      <Donate />
     </View>
   );
 }
