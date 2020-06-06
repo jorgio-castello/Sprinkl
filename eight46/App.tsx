@@ -8,6 +8,7 @@ import RoundUps from './components/RoundUps';
 
 // Data
 import data from './sampleData/data';
+import tailwind from 'tailwind-rn';
 const { organizations, roundUps } = data;
 
 type AppState = {
@@ -29,24 +30,35 @@ export default class App extends React.Component<{}, AppState> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}> Organization Cards </Text>
-        <Organization organizationData={organizations}/>
-        <Donate />
-        <RoundUps />
+      <View style={tailwind('border-solid border-4 border-gray-600 flex-1')}>
+
+        <View style={tailwind('my-10')}>
+          <Text style={styles.text}> Organization Cards </Text>
+          <Organization organizationData={organizations}/>
+        </View>
+
+        {/* <View style={tailwind('border-solid border-4 border-gray-600')}>
+          <Donate />
+        </View> */}
+
+        <View style={tailwind('my-10')}>
+          <Text style={styles.text}> Transaction Cards </Text>
+          <RoundUps transactionData={roundUps}/>
+        </View>
+
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: '20%',
-  },
+  // container: {
+  //   flex: 1,
+  //   backgroundColor: '#fff',
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  //   marginTop: '20%',
+  // },
   text: {
     color: 'red',
   }
