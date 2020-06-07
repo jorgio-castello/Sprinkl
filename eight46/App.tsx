@@ -9,7 +9,7 @@ import RoundUps from './components/RoundUps';
 // Data
 import data from './sampleData/data';
 import tailwind from 'tailwind-rn';
-const { organizations, roundUps } = data;
+const { organizations } = data;
 
 type AppState = {
   organizations: Array<Object>,
@@ -19,13 +19,18 @@ type AppState = {
 export default class App extends React.Component<{}, AppState> {
   constructor(props: Object) {
     super(props);
-    this.state = { organizations, roundUps };
+    this.state = {
+      organizations,
+      roundUps: []
+    };
   }
 
   componentDidMount() {
-    // fetch('http://127.0.0.1:8460/hello')
-    //   .then(res => res.json())
-    //   .then(data => console.log(data));
+    fetch('http://127.0.0.1:8460/refreshUserData')
+      .then(res => res.json())
+      .then(userData => {
+        this.setState({ roundUps: userData });
+      });
   }
 
   render() {
@@ -34,7 +39,7 @@ export default class App extends React.Component<{}, AppState> {
 
         <View style={tailwind('my-10')}>
           <Text style={styles.text}> Organization Cards </Text>
-          <Organization organizationData={organizations}/>
+          <Organization organizationData={this.state.organizations}/>
         </View>
 
         <View style={tailwind('')}>
@@ -44,7 +49,7 @@ export default class App extends React.Component<{}, AppState> {
 
         <View style={tailwind('my-10')}>
           <Text style={styles.text}> Transaction Cards </Text>
-          <RoundUps transactionData={roundUps}/>
+          <RoundUps transactionData={this.state.roundUps}/>
         </View>
 
       </View>
