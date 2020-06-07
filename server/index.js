@@ -1,17 +1,21 @@
 const express = require('express');
 const app = express();
-const fetch = require('node-fetch');
+const cors = require('cors');
+
+// Controllers
+const { refreshUserData } = require('./controllers/refreshUserData');
 
 // db connection
 const { sequelize } = require('../postgres');
 
+// Express configuration
+app.use(cors());
+app.use(express.json());
+
 const PORT = process.env.port || 8460;
 
-app.get('/transactionData', (req, res) => {
-  fetch('http://localhost:8000/transactions')
-    .then(res => res.json())
-    .then(data => console.log(data));
-});
+// routes
+app.get('/refreshUserData', refreshUserData);
 
 sequelize.sync().then(() => {
   app.listen(PORT, (err) => {
