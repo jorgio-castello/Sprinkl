@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import tailwind from 'tailwind-rn';
 
 interface Transaction {
-  id: number,
+  transaction_id: string,
   date: string,
-  vendor: string,
-  price: number,
+  name: string,
+  amount: number,
   roundUp: number,
 }
 
@@ -22,11 +22,12 @@ const RoundUps: React.FC<RoundUpsProps> = ({ transactionData }) => {
       renderItem={({ item }) => (
         <View style={tailwind('border-solid border-4 border-gray-600 mt-1 mb-1 flex-row justify-between')}>
               <Text>{item.date}</Text>
-              <Text>{item.vendor}</Text>
-              <Text>{item.price}</Text>
+              <Text>{item.name}</Text>
+              <Text>{item.amount}</Text>
               <Text>{item.roundUp}</Text>
           </View>
       )}
+      keyExtractor={item => item.transaction_id}
     />
   );
 };
