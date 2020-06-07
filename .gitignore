@@ -4,3 +4,4 @@ Dockerfile
 postgres/node_modules
 postgres/package-lock.json
 plaid/
+data-scraper/node_modules
