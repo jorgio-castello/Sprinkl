@@ -5,3 +5,5 @@ postgres/node_modules
 postgres/package-lock.json
 plaid/
 data-scraper/node_modules
+data-scraper/scraperData.txt
+eight-46/package-lock.json
