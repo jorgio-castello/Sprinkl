@@ -4,6 +4,7 @@ const cors = require('cors');
 
 // Controllers
 const { refreshUserData } = require('./controllers/refreshUserData');
+const { getTrendingData } = require('./controllers/getTrendingData');
 
 // db connection
 const { sequelize } = require('../postgres');
@@ -16,6 +17,7 @@ const PORT = process.env.port || 8460;
 
 // routes
 app.get('/refreshUserData', refreshUserData);
+app.get('/getTrendingData', getTrendingData);
 
 sequelize.sync().then(() => {
   app.listen(PORT, (err) => {
