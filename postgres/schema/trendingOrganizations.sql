@@ -2,7 +2,7 @@
 
 DROP TABLE IF EXISTS trendingOrganizations;
 
--- CREATE CAUSES TABLE
+-- CREATE TrendingOrganizations TABLE
 CREATE TABLE trendingOrganizations (
   id SERIAL,
   bucket VARCHAR(15) NOT NULL,
