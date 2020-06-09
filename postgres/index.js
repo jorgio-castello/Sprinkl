@@ -121,8 +121,41 @@ TrendingCauses.init({
 TrendingCauses.belongsTo(Organization, { foreignKey: 'organization_id' });
 
 // -------------------------------------------------------------------------------
+// INSTANTIATE USER PREFERNCES MODEL aka ongoing donations ------------------------
+class UserPreferences extends Model {};
+UserPreferences.init({
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    field: 'id',
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    field: 'user_id',
+  },
+  organizationId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    field: 'organization_id',
+  },
+  weight: {
+    type: DataTypes.DECIMAL,
+    field: 'weight',
+  }
+}, {
+  modelName: 'userPreferences',
+  tableName: 'userpreferences',
+  timestamps: false,
+  sequelize,
+});
+
+// Foreign key relationship
+UserPreferences.belongsTo(Organization, { foreignKey: 'organization_id' });
+
 
 module.exports.Cause = Cause;
 module.exports.Organization = Organization;
 module.exports.TrendingCauses = TrendingCauses;
+module.exports.UserPreferences = UserPreferences;
 module.exports.sequelize = sequelize;
