@@ -32,9 +32,6 @@ const TrendingCauses: React.FC<TrendingCausesProps> = (props) => {
 
   return (
     <>
-        <View style={tailwind('bg-blue-700 mt-5 h-16 justify-center')}>
-          <Text style={tailwind('text-2xl text-white font-bold font-light text-left pl-5')}>Trending Causes</Text>
-        </View>
       <ScrollView style={tailwind('pt-4 bg-blue-100 rounded-lg')}>
         { props.trendingCauses.map((movement, index) => {
             const { cause, data } = movement;
