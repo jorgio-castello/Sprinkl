@@ -1,4 +1,4 @@
-const { Cause, Organization, TrendingCauses  } = require('../');
+const { Cause, Organization, TrendingCauses, UserPreferences,  } = require('../');
 
 const getTrendingCauses = (callback) => {
   TrendingCauses.findAll({raw: true, include: [Organization]})
@@ -54,7 +54,14 @@ const getTrendingCauses = (callback) => {
     .catch(err => callback(null));
 };
 
+const getUserPreferences = (userId, callback) => {
+  UserPreferences.findAll({raw: true, include: [Organization], where: { userId } })
+    .then(data => callback(null, data))
+    .catch(err => callback(err));
+};
+
 module.exports.getTrendingCauses = getTrendingCauses;
+module.exports.getUserPreferences = getUserPreferences;
 
 
 
