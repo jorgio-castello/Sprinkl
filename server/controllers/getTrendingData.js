@@ -1,13 +1,24 @@
-const { getTrendingCauses } = require('../../postgres/models');
+const { getTrendingCauses, getUserPreferences } = require('../../postgres/models');
 
-const getTrendingData = (req, res) => {
+const getTrendingData = (callback) => {
   getTrendingCauses((err, trendingData) => {
     if (err) {
-      throw new Error(err);
+      callback(err);
     } else {
-      res.json(trendingData);
+      callback(null, trendingData);
+    }
+  });
+};
+
+const getPreferencesData = (callback) => {
+  getUserPreferences(1, (err, preferences) => { // HARD CODING 1 - testing for one user
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, preferences);
     }
   });
 };
 
 module.exports.getTrendingData = getTrendingData;
+module.exports.getPreferencesData = getPreferencesData;
